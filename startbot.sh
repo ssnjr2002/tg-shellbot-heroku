@@ -5,13 +5,9 @@
 echo "Loading startup.sh..."
 bash /home/startup.sh
 
-echo "Cloning repo..."
-cd /home/
-git clone https://github.com/botgram/shell-bot
-echo "Done."
-
 echo "Creating config.json..."
-cat > shell-bot/config.json <<EOF
+cd /home/shell-bot
+cat > config.json <<EOF
 {
     "authToken": "$BOT_TOKEN",
     "owner": $OWN_ID
@@ -20,4 +16,4 @@ EOF
 echo "Done."
 
 echo "Starting Bot..."
-cd shell-bot && node server
+node server

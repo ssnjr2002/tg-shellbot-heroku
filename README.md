@@ -1,4 +1,4 @@
-# remoteTelegramShell-heroku
+# tg-shellbot-heroku
 
 https://github.com/botgram/shell-bot
 

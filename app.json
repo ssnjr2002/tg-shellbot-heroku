@@ -6,12 +6,10 @@
     "stack": "container",
     "env": {
       "BOT_TOKEN": {
-        "description": "This is bot auth token, necessary to connect bot to Telegram device.",
-        "required":  "true"
+        "description": "This is bot auth token, necessary to connect bot to Telegram device."
       },
       "OWN_ID": {
-        "description": "The chat id which will control the bot. Could be a group or a individual",
-        "required":  "true"
+        "description": "The chat id which will control the bot. Could be a group or a individual"
       }
     }
   }

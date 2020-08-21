@@ -9,8 +9,6 @@ RUN apt-get update && apt-get install -y \
     curl \
     sudo \
     wget \
-    python \
-    python-pip \
     git \
     make \
     busybox \

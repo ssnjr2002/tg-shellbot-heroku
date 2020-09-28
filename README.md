@@ -4,24 +4,12 @@ https://github.com/botgram/shell-bot
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/ssnjrthegr8/tg-shellbot-heroku.git)
 
-You can deploy without forking to test it out. I highly recommend forking this repo so that you can customise it as you want:
+You can deploy without cloning this repo to test it out.
 
 ## Instructions:
-* Fork this repo
-* Go to: `https://heroku.com/deploy?template=https://github.com/<YOUR_USERNAME_HERE>/tg-shellbot-heroku`
-* Fill everything in and deploy
-* Go to: `https://dashboard.heroku.com/<YOUR_HEROKU_APP_NAME>/deploy/github`and connect your forked repo and enable auto-deploy
-* Edit your extras.sh and startup.sh, the app will redeploy everytime you edit stuff.
-* If you want a file to be copied to heroku dyno, put it in the /stuff folder in your repo. Make your repo private (don't forget to connect your github account to heroku) if you don't want your sensitive files shown to everyone in the world
-
-## extras.sh and startup.sh explained:
-A heroku dyno will restart every 24 hrs and resets everything. In order to make it start up quickly, the installation and startup scripts are separated. The extras.sh has sudo while startup.sh doesn't.
-
-### extras.sh
-Everything you need to install, you need to write it into this file. By connecting your forked version of this repo and your heroku app, you can seamlessly redeploy everytime you add something in using github
-
-### startup.sh
-This script is reserved for adding in commands before the bot starts. If any configuration or setup is required, it should be written to this file as heroku resets every 24 hrs.
-
-### Example:
-Say you want to install [rclone](https://rclone.org/install/). You put the installation command in extras.sh and the configuration file in the /stuff folder. In the startup.sh you put in the command for copying the config file to the correct destination (~.config/rclone/).
+* Click on "<b>Use this template</b>" if you want to make your repo private (forking wont allow the repo to be private).
+* Edit your [config.sh](https://github.com/ssnjrthegr8/tg-shellbot-heroku/blob/master/config.sh) It's a bash script which gets executed while the Dockerfile builds the image. Everything you need to install and setup needs to be written down here.
+* Open your version of this repo and in the address bar add this: `https://heroku.com/deploy?template=` as the prefix.
+* Fill everything in and deploy. After its finished click <b>manage app</b> and go to <b>resources</b> tab and turn on the <b>worker</b>.
+* Now click on the <b>deploy</b> tab, connect your github account and then connect your repo. This way you can edit config.sh through Github web and the app will automatically redeploy and apply changes.
+* If you want a file to be copied to heroku dyno, put it in the <b>stuff</b> folder in your repo. Make your repo private if you don't want your sensitive files be shown to the public.

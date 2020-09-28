@@ -14,26 +14,26 @@ RUN apt-get update && apt-get install -y \
     busybox \
     build-essential \
     nodejs \
-    npm \
- && mkdir -p -vv /stuff
+    npm
 
 # Set work dir:
 WORKDIR /home
 
 # Copy files:
 COPY startbot.sh /home/
-COPY startup.sh /home/
-COPY extras.sh /home/
-COPY /stuff /stuff
+COPY config.sh /home/
+COPY /stuff /home/
 
-# Run extras.sh and clean up APT:
-RUN sh /home/extras.sh \
+# Run config.sh and clean up APT:
+RUN sh /home/config.sh \
  && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install the bot:
 RUN git clone https://github.com/botgram/shell-bot.git \
  && cd shell-bot \
  && npm install
+
+RUN echo -e "Loaded files="\n && ls /home/stuff/
 
 # Run bot script:
 CMD bash /home/startbot.sh

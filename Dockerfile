@@ -33,7 +33,7 @@ RUN git clone https://github.com/botgram/shell-bot.git \
  && cd shell-bot \
  && npm install
 
-RUN echo -e "Loaded files="\n && ls /home/stuff/
+RUN echo -e "Loaded files="\n && ls
 
 # Run bot script:
 CMD bash /home/startbot.sh

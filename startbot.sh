@@ -7,8 +7,7 @@
 ## restart the bot by turning the worker off and back on
 
 echo "Creating config.json..."
-cd /home/shell-bot
-echo > config.json <<EOF
+echo > /home/shell-bot/config.json <<EOF
 {
     "authToken": "$BOT_TOKEN",
     "owner": $OWN_ID
@@ -17,4 +16,5 @@ EOF
 echo "Done."
 
 echo "Starting Bot..."
+cd /home/shell-bot
 node server
